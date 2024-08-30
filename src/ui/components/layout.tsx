@@ -62,7 +62,7 @@ export default function Layout({
     Component = 'div',
     wrap = 'initial',
     classes,
-    ...props,
+    ...props
 }: StyledComponentProps<IProps>) {
   return (
     <Component

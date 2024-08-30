@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
 })
 
-export default class TileOverlay extends React.PureComponent<IProps, void> {
+export default class TileOverlay extends React.PureComponent<IProps> {
   render() {
     const { state, ...props } = this.props
     const classes = css(styles.main, state.map(s => styles[s]))

@@ -3,7 +3,7 @@ import * as React from 'react'
 
 type TypedComponentClass<Props> = (
   React.ComponentClass<Props>
-  | React.StatelessComponent<Props>
+  | React.FunctionComponent<Props>
   | string
 )
 
@@ -14,9 +14,9 @@ export type StyledComponentProps<Props> = (
 )
 
 function className<Props>(
-  displayName,
+  displayName: string,
   Component: TypedComponentClass<Props & { className?: string }>,
-  ...baseClasses: any[],
+  ...baseClasses: any[]
 ): React.ComponentClass<StyledComponentProps<Props>> {
   // XXX This is a big typing shitfuck but it's just internal
   const C: any = Component
@@ -26,8 +26,8 @@ function className<Props>(
   // anyway.
   // XXX not sure why I need to to `props as any`. I think it's a ts bug
   const Wrapper: any = (props: StyledComponentProps<Props>) => {
-    const classNames = css(baseClasses, ...(props.classes || []))
-    return <C className={classNames} {...(props as any)} />
+    const classNames = css(baseClasses, ...(props.classes || []));
+    return <C {...(props as any)} className={classNames} />;
   }
 
   Wrapper.displayName = displayName
@@ -36,9 +36,9 @@ function className<Props>(
 }
 
 function classes<Props>(
-  displayName,
+  displayName: string,
   Component: TypedComponentClass<Props & { classes: any[] }>,
-  ...baseClasses: any[],
+  ...baseClasses: any[]
 ): React.ComponentClass<StyledComponentProps<Props>> {
   // XXX This is a big typing shitfuck but it's just internal
 
@@ -48,8 +48,8 @@ function classes<Props>(
   // props object twice here, as we immediately override the supplied className
   // anyway.
   const Wrapper: any = (props: StyledComponentProps<Props>) => {
-    const classes = [...baseClasses, ...[props.classes || []]]
-    return <C classes={classes} {...(props as any)} />
+    const classes = [...baseClasses, ...[props.classes || []]];
+    return <C {...(props as any)} classes={classes} />;
   }
 
   Wrapper.displayName = displayName

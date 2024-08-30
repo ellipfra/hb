@@ -60,8 +60,13 @@ const DialogControl = withStyle.classes(
   styles.control,
 )
 
+// Define the props interface, including children
+interface DialogProps {
+  children?: React.ReactNode;
+}
+
 // make it pass props. maybe create withStyle HOC?
-export default class Dialog extends React.Component<{}, {}> {
+export default class Dialog extends React.Component<DialogProps> {
   static Title = DialogTitle
   static Controls = DialogControls
   static Control = DialogControl

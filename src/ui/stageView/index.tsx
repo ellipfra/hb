@@ -53,7 +53,7 @@ export interface IState {
   }
 }
 
-export default class Stageview extends React.Component<IProps, IState> {
+export default class Stageview extends React.Component<IProps,IState> {
   oldKeyPress: any
   store: Store
 

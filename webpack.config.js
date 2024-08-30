@@ -12,7 +12,7 @@ let config = {
 
   output: {
     path: path.resolve('./build'),
-    publicPath: '/static/',
+    publicPath: './',
     filename: 'bundle.js',
   },
 

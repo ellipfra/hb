@@ -88,7 +88,7 @@ export interface IProps {
   terrain: Terrain,
 }
 
-export default class Tile extends React.PureComponent<IProps, void> {
+export default class Tile extends React.PureComponent<IProps> {
   render() {
     return tiles[this.props.terrain]
   }
