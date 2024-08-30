@@ -1,7 +1,8 @@
 {
-  "name": "hexa-battle",
+  "name": "@ellipfra/hexa-battle",
   "version": "0.1.1",
   "description": "",
+  "repository": "https://github.com/ellipfra/hb",
   "scripts": {
     "build": "npm run webpack",
     "dev-server": "DEV_SERVER=true webpack-dev-server --hot --inline --progress",
